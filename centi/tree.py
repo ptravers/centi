@@ -3,26 +3,26 @@
 """
 centi.tree
 ~~~~~~~~~~~~~~~
-This module contains the methods for evaluating the grammar trees returned by 
+This module contains the methods for evaluating the grammar trees returned by
 the parser
 """
-
-# from .sentiment import get_sentiment
+from .constants import neutral, tag_default
+from .sentiment import get_sentiment
 from nltk.tree import Tree
 
 # structure of components: [(label, (polarity, modifier))]
 def resolve(components):
     # if we have only one component below a node, just propogate its attributes
     if len(components) == 1:
-        return components[0][1]
+        attributes = components[0][1]
+        return attributes
     else:
         # DUMMY: rules are applied here
-        return (0, '=')
+        return (neutral,tag_default)
 
 def get_polarity(node):
     if type(node[0]) is not Tree:
-        # DUMMY: return get_sentiment(node[0])
-        return (0, '=')
+        return get_sentiment(node[0])
     else:
         children = []
         for child in node:
