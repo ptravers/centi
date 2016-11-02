@@ -7,23 +7,24 @@ This module contains the methods for converting words into sentiment tuples
 """
 
 import corpus
+from .constants import tag_reverse, tag_default, neutral, positive, negative
 
 def get_sentiment(word):
     """Creates sentiment and modifier tuple for a word
     Sentiment can be positive (1), neutral (0) or negative (-1)
     Modifier can be pos (P), neg (N), invert (¬) or no modifier (=)
     """
-    
+
     if word in corpus.positive:
-        sentiment = 1
+        sentiment = positive
     elif word in corpus.negative:
-        sentiment = -1
+        sentiment = negative
     else:
-        sentiment = 0
-    
+        sentiment = neutral
+
     if word in corpus.reverse:
-        modifier = '¬'
+        modifier = tag_reverse
     else:
-        modifier = '='
-    
+        modifier = tag_default
+
     return (sentiment, modifier)

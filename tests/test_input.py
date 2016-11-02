@@ -1,6 +1,7 @@
 import unittest
 import os
-from centi_app import parser
+from centi import parser
+from nltk.tree import Tree
 
 class TestBasicInput(unittest.TestCase):
 
@@ -11,7 +12,8 @@ class TestBasicInput(unittest.TestCase):
 
     def test_single_string_input(self):
         try:
-            parser.run("This is a test.")
+            tree = parser.parse_sentence("This is a test.")[0]
+            self.assertEqual(type(tree), Tree)
         except Exception as e:
             #https://stackoverflow.com/questions/9823936/python-how-do-i-know-what-type-of-exception-occured
             template = "an exception of type {0}:\n{1!r}"

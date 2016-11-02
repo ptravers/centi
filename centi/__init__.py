@@ -11,3 +11,4 @@ The recursive Semtiment Analysis tool
 from .parser import parse_sentence, parse_sentences
 from .sentiment import get_sentiment
 from .tree import get_polarity
+from .constants import negative, tag_negative, positive, tag_positive, tag_reverse, neutral, tag_default
