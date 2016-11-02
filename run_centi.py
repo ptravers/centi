@@ -11,4 +11,6 @@ You can access the centi library from this file
 
 import centi
 
-centi.parse_sentence("I ate some toast for breakfast")[0].draw()
+parseTree = centi.parse_sentence("I ate some toast for breakfast")[0]
+evaluatedParseTree = centi.get_polarity(parseTree)
+print evaluatedParseTree
