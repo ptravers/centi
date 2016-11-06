@@ -7,7 +7,7 @@ mixed = 'M'
 negative = -1
 
 #tags
-tag_reverse = '~'
-tag_default = '='
-tag_positive = '+'
-tag_negative = '-'
+modifier_reverse = '~'
+modifier_default = '='
+modifier_positive = '+'
+modifier_negative = '-'
