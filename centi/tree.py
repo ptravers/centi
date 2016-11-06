@@ -6,7 +6,7 @@ centi.tree
 This module contains the methods for evaluating the grammar trees returned by
 the parser
 """
-from .constants import neutral, modifier_default
+from .constants import *
 from .sentiment import get_sentiment
 from nltk.tree import Tree
 
@@ -18,7 +18,7 @@ def resolve(components):
         return attributes
     else:
         # DUMMY: rules are applied here
-        return (neutral,modifier_default)
+        return (NEUTRAL_SENTIMENT, DEFAULT_MODIFIER)
 
 def get_polarity(node):
     if type(node[0]) is not Tree:

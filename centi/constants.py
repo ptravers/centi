@@ -1,13 +1,18 @@
-#Constants for sentiment determination
+# -*- coding: utf-8 -*-
 
-#sentiment
-neutral = 0
-positive = 1
-mixed = 'M'
-negative = -1
+"""
+centi.constants
 
-#tags
-modifier_reverse = '~'
-modifier_default = '='
-modifier_positive = '+'
-modifier_negative = '-'
+Symbols for sentiments and sentiment modifiers
+
+"""
+
+NEUTRAL_SENTIMENT = 0
+POSITIVE_SENTIMENT = 1
+MIXED_SENTIMENT = 'M'
+NEGATIVE_SENTIMENT = -1
+
+REVERSE_MODIFIER = '~'
+DEFAULT_MODIFIER = '='
+POSITIVE_MODIFIER = '+'
+NEGATIVE_MODIFIER = '-'
