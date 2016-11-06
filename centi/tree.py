@@ -9,6 +9,7 @@ the parser
 from .constants import *
 from .sentiment import get_sentiment, get_modifier
 from .snode     import Snode
+from .rules     import apply_rules
 from nltk.tree  import Tree
 
 def resolve(snodes):
@@ -16,8 +17,7 @@ def resolve(snodes):
     if len(snodes) == 1:
         return snodes[0].sentiment, snodes[0].modifier
     else:
-        # DUMMY: rules are applied here
-        return NEUTRAL_SENTIMENT, DEFAULT_MODIFIER
+        return apply_rules(snodes)
 
 def get_polarity(node):
     if type(node[0]) is Tree:
