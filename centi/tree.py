@@ -12,7 +12,7 @@ from nltk.tree import Tree
 
 # structure of components: [(label, (polarity, modifier))]
 def resolve(components):
-    # if we have only one component below a node, just propogate its attributes
+    # if we have only one component below a node, just propagate its attributes
     if len(components) == 1:
         attributes = components[0][1]
         return attributes
