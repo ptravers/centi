@@ -10,21 +10,20 @@ import corpus
 from .constants import *
 
 def get_sentiment(word):
-    """Creates sentiment and modifier tuple for a word
-    Sentiment can be positive, neutral or negative
-    Modifier can be pos, neg, invert or no modifier
+    """Returns whether word is positive, neutral, or negative
     """
 
     if word in corpus.positive:
-        sentiment = POSITIVE_SENTIMENT
+        return POSITIVE_SENTIMENT
     elif word in corpus.negative:
-        sentiment = NEGATIVE_SENTIMENT
+        return NEGATIVE_SENTIMENT
     else:
-        sentiment = NEUTRAL_SENTIMENT
+        return NEUTRAL_SENTIMENT
 
+def get_modifier(word):
+    """Returns whether a word has special sentiment modifying properties
+    """
     if word in corpus.reverse:
-        modifier = REVERSE_MODIFIER
+        return REVERSE_MODIFIER
     else:
-        modifier = DEFAULT_MODIFIER
-
-    return (sentiment, modifier)
+        return DEFAULT_MODIFIER
