@@ -8,9 +8,3 @@ def apply_rules(snodes):
         return POSITIVE_SENTIMENT, DEFAULT_MODIFIER
     else:
         return NEUTRAL_SENTIMENT, DEFAULT_MODIFIER
-
-def negator(nodes):
-    #does nothing for now
-    for node in nodes:
-        node[1][0]
-    return nodes
