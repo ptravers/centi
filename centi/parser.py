@@ -12,7 +12,6 @@ from nltk.grammar import DependencyGrammar
 def parse_sentence(raw_sentence):
     parser = stanford.StanfordParser()
 
-    head =
 
     parser_output = parser.raw_parse(raw_sentence)
 
