@@ -26,9 +26,13 @@ def get_polarity(node):
         for child in node:
             children.append(get_polarity(child))
         
+        label               = node.label()
         sentiment, modifier = resolve(children)
-        
-        return Snode(node.label(), sentiment, modifier)
     else:
-        return Snode(node.label(), get_sentiment(node[0]), get_modifier(node[0]))
-
+        label     = node.label()
+        sentiment = get_sentiment(node[0])
+        modifier  = get_modifier(node[0])
+    
+    print "Node {0} [{1}, {2}]".format(label, sentiment, modifier)
+    
+    return Snode(label, sentiment, modifier)
