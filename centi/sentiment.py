@@ -23,7 +23,11 @@ def get_sentiment(word):
 def get_modifier(word):
     """Returns whether a word has special sentiment modifying properties
     """
-    if word in corpus.reverse:
+    if word in corpus.reverse_modifiers:
         return REVERSE_MODIFIER
+    elif word in corpus.positive_modifiers:
+        return POSITIVE_MODIFIER
+    elif word in corpus.negative_modifiers:
+        return NEGATIVE_MODIFIER
     else:
         return DEFAULT_MODIFIER
