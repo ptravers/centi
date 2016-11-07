@@ -33,6 +33,6 @@ def get_polarity(node):
         sentiment = get_sentiment(node[0])
         modifier  = get_modifier(node[0])
     
-    print "Node {0} [{1}, {2}]".format(label, sentiment, modifier)
+    print "Node {0} ({1})[{2}]".format(label, sentiment, modifier)
     
     return Snode(label, sentiment, modifier)
