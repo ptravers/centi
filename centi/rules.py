@@ -7,7 +7,11 @@ def apply_rules(snodes):
     has_negative = any([snode.sentiment is NEGATIVE_SENTIMENT for snode in snodes])
     has_mixed    = any([snode.sentiment is MIXED_SENTIMENT    for snode in snodes])
 
-    if has_mixed or (has_positive and has_negative):
+    if has_mixed:
+        print "Propagating mixed sentiment"
+        return MIXED_SENTIMENT, DEFAULT_MODIFIER
+
+    elif has_positive and has_negative:
         print "Sentiment conflict!"
         return MIXED_SENTIMENT, DEFAULT_MODIFIER
 
