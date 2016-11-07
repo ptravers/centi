@@ -2,7 +2,7 @@
 
 from .constants import *
 
-def apply_rules(snodes):
+def apply_rules(snodes, parent_label):
     has_positive = any([snode.sentiment is POSITIVE_SENTIMENT for snode in snodes])
     has_negative = any([snode.sentiment is NEGATIVE_SENTIMENT for snode in snodes])
     has_mixed    = any([snode.sentiment is MIXED_SENTIMENT    for snode in snodes])
