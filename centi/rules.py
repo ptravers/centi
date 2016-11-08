@@ -3,31 +3,33 @@
 from .constants import *
 
 def apply_rules(snodes, parent_label):
+
+    calculate_head(snodes, parent_label)
+
+    sentiment_to_propogate = NEUTRAL_SENTIMENT
+    modifier_to_propogate = DEFAULT_MODIFIER
+
     has_positive = any([snode.sentiment is POSITIVE_SENTIMENT for snode in snodes])
     has_negative = any([snode.sentiment is NEGATIVE_SENTIMENT for snode in snodes])
     has_mixed    = any([snode.sentiment is MIXED_SENTIMENT    for snode in snodes])
 
-    calculate_head(snodes, parent_label)
-
     if has_mixed:
         print "Propagating mixed sentiment"
-        return MIXED_SENTIMENT, DEFAULT_MODIFIER
+        sentiment_to_propogate = MIXED_SENTIMENT
 
     elif has_positive and has_negative:
         print "Sentiment conflict!"
-        return MIXED_SENTIMENT, DEFAULT_MODIFIER
+        sentiment_to_propogate = MIXED_SENTIMENT
 
     elif has_positive and not has_negative:
         print "Propagating positive sentiment"
-        return POSITIVE_SENTIMENT, DEFAULT_MODIFIER
+        sentiment_to_propogate = POSITIVE_SENTIMENT
 
     elif has_negative and not has_positive:
         print "Propagating negative sentiment"
-        return NEGATIVE_SENTIMENT, DEFAULT_MODIFIER
+        sentiment_to_propogate = NEGATIVE_SENTIMENT
 
-    else:
-        print "Propagating neutral sentiment"
-        return NEUTRAL_SENTIMENT, DEFAULT_MODIFIER
+    return sentiment_to_propogate, modifier_to_propogate
 
 def pre_head_rules(snodes):
     #Pre Head Rules are added below
