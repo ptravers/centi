@@ -29,16 +29,21 @@ def apply_rules(snodes, parent_label):
         print "Propagating neutral sentiment"
         return NEUTRAL_SENTIMENT, DEFAULT_MODIFIER
 
+def pre_head_rules(snodes):
+    #Pre Head Rules are added below
+    if snodes:
+        return snodes
+
 def get_noun_phrase_head(snodes):
     # Including pronouns
-    noun_labels    = ['NN', 'NNS', 'NNP', 'NNPS', 'PRP', 'PRP$']
+    noun_labels    = NOUN_LABELS
     for snode in snodes:
         if snode.label in noun_labels:
             snode.head = True
             break
 
 def get_verb_phrase_head(snodes):
-    verb_labels = ['VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ']
+    verb_labels = VERB_LABELS
 
     for snode in snodes:
         if snode.label in verb_labels:
@@ -52,7 +57,7 @@ def get_prepositional_phrase_head(snodes):
             break
 
 def get_adjective_phrase_head(snodes):
-    adjective_labels = ['JJ', 'JJR', 'JJS']
+    adjective_labels = ADJ_LABELS
 
     for snode in snodes:
         if snode.label in adjective_labels:
@@ -60,7 +65,7 @@ def get_adjective_phrase_head(snodes):
             break
 
 def get_adverb_phrase_head(snodes):
-    adverb_labels = ['RB', 'RBR', 'RBS']
+    adverb_labels = ADVERB_LABELS
 
     for snode in snodes:
         if snode.label in adverb_labels:
@@ -82,4 +87,7 @@ def calculate_head(snodes, parent_label):
     try :
         head_map[parent_label](snodes)
     except KeyError as e:
-        print "Key not found. Key was " + parent_label
+        print type(e).__name__ + ": Key not found. Key was " + parent_label
+
+
+

@@ -13,3 +13,4 @@ from .sentiment import get_sentiment, get_modifier
 from .tree import get_polarity
 from .rules import apply_rules, calculate_head
 from .snode import Snode
+from .constants import *

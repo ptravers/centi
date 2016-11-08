@@ -5,17 +5,17 @@ class TestTemplate(unittest.TestCase):
 
     def test_neutral_sentence(self):
         sentence = "This is a thing."
-        parsed_tree = centi.parse_sentence(sentence)
+        parsed_tree = centi.parse_sentence(sentence)[0]
         actual_sentence_sentiment = centi.get_polarity(parsed_tree)
 
-        expected_sentence_sentiment = (centi.neutral, centi.modifier_default)
-        self.assertEqual(actual_sentence_sentiment, expected_sentence_sentiment)
+        expected_sentence_sentiment = (centi.NEUTRAL_SENTIMENT, centi.DEFAULT_MODIFIER)
+        self.assertEqual(actual_sentence_sentiment.sentiment, expected_sentence_sentiment[0])
 
-    def test_negated_sentence(self):
-        negated_sentence = "This is not a thing."
-        parsed_tree = centi.parse_sentence(negated_sentence)
+    def test_negative_sentence(self):
+        negated_sentence = "I hate trees."
+        parsed_tree = centi.parse_sentence(negated_sentence)[0]
         actual_sentence_sentiment = centi.get_polarity(parsed_tree)
 
-        expected_sentence_sentiment = (centi.negative,centi.modifier_reverse )
-        self.assertEqual(actual_sentence_sentiment, expected_sentence_sentiment)
+        expected_sentence_sentiment = (centi.NEGATIVE_SENTIMENT,centi.REVERSE_MODIFIER )
+        self.assertEqual(actual_sentence_sentiment.sentiment, expected_sentence_sentiment[0])
 
