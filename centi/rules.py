@@ -27,7 +27,7 @@ def apply_rules(snodes, parent_label):
 
     else:
         print "Propagating neutral sentiment"
-        return NEUTRAL_SENTIMENT, DEFAULT_MODIFIER        return NEUTRAL_SENTIMENT, DEFAULT_MODIFIER
+        return NEUTRAL_SENTIMENT, DEFAULT_MODIFIER
 
 def calculate_head(snodes, parent_label):
     """Marks, if applicable, a snode as the head
