@@ -12,3 +12,4 @@ class Snode:
         self.label     = label
         self.sentiment = sentiment
         self.modifier  = modifier
+        self.head      = False
