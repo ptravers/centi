@@ -24,3 +24,9 @@ def parse_sentences(raw_sentences):
 
     # Converts messy iterables into simple list of trees
     return [raw_tree[0] for sublist in raw_trees for raw_tree in sublist]
+
+def parse_text(raw_text):
+    
+    sentences = nltk.tokenize.sent_tokenize(raw_text)
+    
+    return parse_sentences(sentences)
