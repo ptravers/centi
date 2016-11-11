@@ -6,11 +6,11 @@ centi.parser
 This module contains the methods for parsing input into grammar trees
 """
 
-from nltk.parse import stanford, ProjectiveDependencyParser
-from nltk.grammar import DependencyGrammar
+from nltk.parse.stanford import StanfordParser
+import nltk
 
 def parse_sentence(raw_sentence):
-    parser = stanford.StanfordParser()
+    parser = StanfordParser()
 
     parser_output = parser.raw_parse(raw_sentence)
 
@@ -18,7 +18,7 @@ def parse_sentence(raw_sentence):
 
 
 def parse_sentences(raw_sentences):
-    parser = stanford.StanfordParser()
+    parser = StanfordParser()
 
     raw_trees = parser.raw_parse_sents(raw_sentences)
 
